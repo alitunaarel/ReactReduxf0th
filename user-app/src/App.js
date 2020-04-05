@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import UserList from './components/UserList';
 
-function App() {
+function ConsoleLog(data){
+  console.log("from App Module");
+}
+
+class App extends React.Component {
+  state={
+    users: [
+      {name:"Mehmet", state:"online", id:1},
+      {name:"Ali", state:"offline", id:2},
+      {name:"Veli", state:"busy", id:3}
+    ]
+  }
+render(){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+     {
+       <UserList users={this.state.users} />
+     }
     </div>
   );
+}
 }
 
 export default App;
